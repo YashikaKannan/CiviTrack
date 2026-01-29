@@ -28,9 +28,8 @@ const Navbar = () => {
           to="/"
           className="flex items-center gap-3 text-base font-semibold text-slate-900"
         >
-          <img src={logo} alt="CiviTrack Logo" className="h-9 w-9" />
-          <span className="text-lg font-semibold tracking-tight">
-            CiviTrack
+          <img src={logo} alt="CiviTrack Logo" className="h-20 w-200" />
+          <span className="text-lg font-semibold tracking-tight"> CiviTrack
           </span>
         </Link>
         <nav className="hidden items-center gap-8 text-sm font-semibold md:flex">
