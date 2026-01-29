@@ -1,13 +1,16 @@
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { ShieldCheckIcon } from "@heroicons/react/24/solid";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import logo from "../assets/CiviTrack-logo.png";
 
 const NavItem = ({ to, label }) => (
   <NavLink
     to={to}
     className={({ isActive }) =>
-      `text-sm font-semibold ${
-        isActive ? "text-blue-600" : "text-slate-600 hover:text-slate-900"
+      `text-sm font-semibold transition ${
+        isActive
+          ? "text-blue-600"
+          : "text-slate-600 hover:text-slate-900"
       }`
     }
   >
@@ -16,27 +19,54 @@ const NavItem = ({ to, label }) => (
 );
 
 const Navbar = () => {
-  return (
-    <header className="border-b border-slate-200 bg-white">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-5 sm:px-6">
-        <Link to="/" className="flex items-center gap-2 text-lg font-semibold">
-          <img src={logo} alt="CiviTrack Logo" className="h-20 w-250"/>
-          {/* <span>CiviTrack</span> */}
+  const [isOpen, setIsOpen] = useState(false);
 
-        </Link>
-        <nav className="hidden items-center gap-6 md:flex">
-          <NavItem to="/report" label="Report Issue" />
-          <NavItem to="/issues" label="Public Issues" />
-          <NavItem to="/dashboard" label="Authority Dashboard" />
-          <NavItem to="/verify" label="Citizen Verification" />
-        </nav>
+  return (
+    <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur">
+      <div className="app-container flex items-center justify-between py-4">
         <Link
-          to="/report"
-          className="rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200"
+          to="/"
+          className="flex items-center gap-3 text-base font-semibold text-slate-900"
         >
-          Report Now
+          <img src={logo} alt="CiviTrack Logo" className="h-9 w-9" />
+          <span className="text-lg font-semibold tracking-tight">
+            CiviTrack
+          </span>
         </Link>
+        <nav className="hidden items-center gap-8 text-sm font-semibold md:flex">
+          <NavItem to="/issues" label="View Issues" />
+          <NavItem to="/dashboard" label="Authority" />
+          <Link to="/report" className="btn-primary">
+            Report Issue
+          </Link>
+        </nav>
+        <button
+          type="button"
+          className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white p-2 text-slate-600 transition hover:border-slate-300 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200 md:hidden"
+          onClick={() => setIsOpen((prev) => !prev)}
+          aria-label="Toggle navigation"
+          aria-expanded={isOpen}
+        >
+          {isOpen ? (
+            <XMarkIcon className="h-5 w-5" />
+          ) : (
+            <Bars3Icon className="h-5 w-5" />
+          )}
+        </button>
       </div>
+      {isOpen && (
+        <div className="border-t border-slate-200/80 bg-white md:hidden">
+          <div className="app-container space-y-4 py-4">
+            <div className="grid gap-3 text-sm font-semibold">
+              <NavItem to="/issues" label="View Issues" />
+              <NavItem to="/dashboard" label="Authority" />
+            </div>
+            <Link to="/report" className="btn-primary w-full">
+              Report Issue
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

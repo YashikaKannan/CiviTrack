@@ -8,11 +8,56 @@
 
 body {
   font-family: "Inter", system-ui, sans-serif;
-  color: #0f172a;
-  background-color: #f8fafc;
+  color: #1f2937;
+  background-color: #f7f9fa;
 }
 
 img {
   max-width: 100%;
   display: block;
+}
+
+@layer components {
+  .app-container {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+  }
+
+  .section-pad {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+
+  .card {
+    @apply rounded-2xl border border-slate-200/80 bg-white shadow-sm;
+  }
+
+  .card-hover {
+    @apply transition hover:-translate-y-0.5 hover:shadow-md;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200;
+  }
+
+  .btn-quiet {
+    @apply inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100;
+  }
+
+  .select-field {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100;
+  }
+
+  .hero-backdrop {
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.18), transparent 45%),
+      radial-gradient(circle at 80% 10%, rgba(16, 185, 129, 0.16), transparent 40%),
+      radial-gradient(circle at 60% 80%, rgba(37, 99, 235, 0.1), transparent 45%);
+  }
 }

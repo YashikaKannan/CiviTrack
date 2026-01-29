@@ -11,7 +11,7 @@ const VerificationPage = () => {
   );
 
   return (
-    <section className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+    <section className="app-container section-pad">
       <SectionHeader
         title="Citizen Verification"
         subtitle="Confirm fixes to keep civic updates accurate."
@@ -23,10 +23,7 @@ const VerificationPage = () => {
       ) : (
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
           {fixedIssues.map((issue) => (
-            <div
-              key={issue.id}
-              className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
-            >
+            <div key={issue.id} className="card p-5">
               <div className="space-y-3">
                 <h3 className="text-lg font-semibold text-slate-900">
                   {issue.title}
@@ -38,21 +35,25 @@ const VerificationPage = () => {
                   <p className="text-xs font-semibold uppercase text-slate-500">
                     Before
                   </p>
-                  <img
-                    src={issue.image}
-                    alt={`${issue.title} before`}
-                    className="mt-2 h-40 w-full rounded-xl object-cover"
-                  />
+                  <div className="mt-2 aspect-[4/3] overflow-hidden rounded-xl">
+                    <img
+                      src={issue.image}
+                      alt={`${issue.title} before`}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase text-slate-500">
                     After
                   </p>
-                  <img
-                    src={issue.afterImage || issue.image}
-                    alt={`${issue.title} after`}
-                    className="mt-2 h-40 w-full rounded-xl object-cover"
-                  />
+                  <div className="mt-2 aspect-[4/3] overflow-hidden rounded-xl">
+                    <img
+                      src={issue.afterImage || issue.image}
+                      alt={`${issue.title} after`}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                 </div>
               </div>
               <div className="mt-5 flex flex-wrap gap-3">
@@ -64,7 +65,7 @@ const VerificationPage = () => {
                 </button>
                 <button
                   onClick={() => updateIssue(issue.id, { status: "Reported" })}
-                  className="flex-1 rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200"
+                  className="btn-quiet flex-1"
                 >
                   Not Fixed
                 </button>

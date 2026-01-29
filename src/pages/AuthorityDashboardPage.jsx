@@ -25,7 +25,7 @@ const AuthorityDashboardPage = () => {
   };
 
   return (
-    <section className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+    <section className="app-container section-pad">
       <SectionHeader
         title="Authority Dashboard"
         subtitle="Review reported issues and update resolution status."
@@ -49,7 +49,7 @@ const AuthorityDashboardPage = () => {
                   />
                   <button
                     onClick={() => handleMarkFixed(issue)}
-                    className="w-full rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200"
+                    className="btn-primary w-full rounded-xl"
                   >
                     Mark as Fixed
                   </button>

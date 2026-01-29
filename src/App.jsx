@@ -11,7 +11,7 @@ import VerificationPage from "./pages/VerificationPage";
 const App = () => {
   return (
     <IssuesProvider>
-      <div className="min-h-screen bg-slate-50">
+      <div className="min-h-screen bg-transparent">
         <Navbar />
         <main className="pb-12">
           <Routes>

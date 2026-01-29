@@ -33,41 +33,43 @@ const ReportIssuePage = () => {
   };
 
   return (
-    <section className="mx-auto w-full max-w-4xl px-4 py-12 sm:px-6">
+    <section className="app-container section-pad">
       <SectionHeader
         title="Report a Civic Issue"
         subtitle="Share key details so authorities can respond quickly."
       />
       <form
         onSubmit={handleSubmit}
-        className="mt-8 space-y-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+        className="card mt-8 space-y-6 rounded-3xl p-8 shadow-md"
       >
-        <div className="space-y-2">
-          <label className="text-sm font-semibold text-slate-700">
-            Issue Title
-          </label>
-          <input
-            type="text"
-            required
-            value={title}
-            onChange={(event) => setTitle(event.target.value)}
-            placeholder="E.g., Broken streetlight near Park Avenue"
-            className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-700 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
-          />
-        </div>
-        <div className="space-y-2">
-          <label className="text-sm font-semibold text-slate-700">
-            Category
-          </label>
-          <select
-            value={category}
-            onChange={(event) => setCategory(event.target.value)}
-            className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-700 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
-          >
-            {categories.map((item) => (
-              <option key={item}>{item}</option>
-            ))}
-          </select>
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-slate-700">
+              Issue Title
+            </label>
+            <input
+              type="text"
+              required
+              value={title}
+              onChange={(event) => setTitle(event.target.value)}
+              placeholder="E.g., Broken streetlight near Park Avenue"
+              className="input-field"
+            />
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-slate-700">
+              Category
+            </label>
+            <select
+              value={category}
+              onChange={(event) => setCategory(event.target.value)}
+              className="select-field"
+            >
+              {categories.map((item) => (
+                <option key={item}>{item}</option>
+              ))}
+            </select>
+          </div>
         </div>
         <ImageUploader
           label="Upload Photo"
@@ -82,10 +84,7 @@ const ReportIssuePage = () => {
             {location}
           </div>
         </div>
-        <button
-          type="submit"
-          className="w-full rounded-xl bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200"
-        >
+        <button type="submit" className="btn-primary w-full text-base">
           Submit Issue Report
         </button>
       </form>

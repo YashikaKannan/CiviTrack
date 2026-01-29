@@ -19,7 +19,7 @@ const ImageUploader = ({ label, value, onChange }) => {
     <div className="space-y-3">
       <p className="text-sm font-semibold text-slate-700">{label}</p>
       <div
-        className="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50 px-6 py-8 text-center transition hover:border-blue-300 hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200"
+        className="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-slate-200 bg-white px-6 py-8 text-center transition hover:border-blue-300 hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200"
         onClick={() => inputRef.current?.click()}
         role="button"
         tabIndex={0}
@@ -48,7 +48,7 @@ const ImageUploader = ({ label, value, onChange }) => {
         <img
           src={value}
           alt="Preview"
-          className="h-44 w-full rounded-2xl object-cover"
+          className="h-48 w-full rounded-2xl object-cover"
         />
       )}
     </div>
